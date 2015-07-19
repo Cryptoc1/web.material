@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <link href="../css/Material.css" type="text/css" rel="stylesheet">
+    <script src="../js/Material.js"></script>
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100%;">
+        <div id="grid" class="material-grid" columns="5" cell-height="100px">
+            <div class="material-grid-wrapper"></div>
+        </div>
+    </div>
+</body>
+<script>
+    //    document.getElementById('grid').style.width = document.getElementById('grid').parentElement.clientWidth;
+    document.getElementById('grid').style.width = window.innerWidth;
+    for (var i = 0; i < 100; i++) {
+        Material.grid.create({
+            id: 'grid',
+            content: "<div style=\"position: relative; top: 45px; left: 135px;\">" + i + "</div>"
+        });
+    }
+</script>
+
+</html>

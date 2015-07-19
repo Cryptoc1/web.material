@@ -1,0 +1,1573 @@
+<html>
+
+<head>
+    <title>Web.Material</title>
+    <meta name="accentColor" content="#00E676">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/Material.css" type="text/css" rel="stylesheet">
+    <script src="js/Material.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="header">
+        <div id="title">Web.Material</div>
+        <br>
+        <div id="phrase">'Bringing Material Design to the Web'</div>
+    </div>
+    <div id="content">
+        <br>
+        <div style="font-size: 30px; font-weigth: 300;">About Web.Material</div>
+        <br>
+        <div class="heading">Welcome</div>
+        <p>Welcome to Web.Material. Here on this site you can find documentation and other content on Web.Material.</p>
+        <div class="heading">What is Web.Material?</div>
+        <p>Web.Material is two files that attempt to make Material Design concepts easily implemented into websites. A CSS and a JS file hold functions and classes that make it easy to imlpement responsive features and fluid animations. For more imformation on Material Design, Google has created documentation <a href="http://google.com/design/spec">here</a>.</p>
+        <div class="heading">Who is Web.Material?</div>
+        <p>Web.Material was concieved of by <a href="http://cryptocosm.x10.bz" target="_blank">Cryptocosm Developers</a>. As of 2014 the main author has been Samuel Steele (cryptoc1). Although, Others can contribute to the project by forking it on GitHub, or submitting suggestions to <a href="mailto:steelesam72@gmail.com?Subject=Web%20Material%20Suggestion">Sam</a>
+        </p>
+        <div class="heading">Where Can I get Web.Material?</div>
+        <p>Web.Material is available for download through <a href="">GitHub</a>.</p>
+        <br>
+        <div style="font-size: 30px; font-weigth: 300;">Tutorials &amp; Demos</div>
+        <br>
+        <div class="heading">Getting Started</div>
+        <p>To get started using Web.material load the CSS and JS files in your webpage. Whether done using JavaScript or the <code>onload</code> attribute, <code>Material.init(config)</code> should be called when the webpage loads. This accepts an obect that defines some global variables.</p>
+        <div class="code-example" style="height: 180px;">
+            <div class="code" style="height: 150px">
+                &lt;html>
+                <br>
+                <tab></tab>&lt;head>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;link href="Material.css" rel="stylesheet" type="text/css">
+                <tab></tab>
+                <tab></tab>&lt;script src="Material.js">&lt;/script>
+                <br>
+                <tab></tab>&lt;/head>
+                <br>
+                <tab></tab>&lt;body onload="Material.init({backgroundColor: '#F5F5F5', accentColor: '#00E676'})">&lt;/body>
+                <br>&lt;/html>
+            </div>
+        </div>
+        <p>You're now ready to get started!</p>
+        <div class="heading">Creating a Floating Button
+            <a href="#buttons" class="doc-link">
+                <img src="img/link-24.png">
+            </a>
+        </div>
+        <p>One of the simpilest things that can be crated with Web.Material is a floating button. Doing so is as simple as creating a <code>div</code> and giving it a class <code>material-button-floating</code>. In this example an image was put inside the button. By default floating buttons are 50x50 pixels wide. Web.Material assumes that any image put inside the button will be 24x24 pixels. Although, all of these rules can be overidden by custom CSS.</p>
+        <div class="code-example">
+            <div class="code">
+                &lt;html>
+                <br>
+                <tab></tab>&lt;head>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;link href="Material.css" rel="stylesheet" type="text/css">
+                <tab></tab>
+                <tab></tab>&lt;script src="Material.js">&lt;/script>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;style>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>#add-button {
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>background-color: #00E676;
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>position: relative;
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>top: 125;
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>left: 125;
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>}
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;/style>
+                <br>
+                <tab></tab>&lt;/head>
+                <br>
+                <tab></tab>&lt;body onload="Material.init({backgroundColor: '#F5F5F5', accentColor: '#00E676'})">
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-button-floating" id="add-button" title="Add">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;img src="img/plus-24.png">
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <tab></tab>&lt;/body>
+                <br>&lt;/html>
+            </div>
+            <div class="demo" id="refresh-button-demo">
+                <div class="material-button-floating" id="add-button" title="Add">
+                    <img src="img/plus-24.png">
+                </div>
+            </div>
+        </div>
+        <div class="heading">Creating a button with pop-out menu
+            <a href="#menus" class="doc-link">
+                <img src="img/link-24.png">
+            </a>
+        </div>
+        <p>Begin by creating an element to be a button, in this tutorial it will be an image. Set that elements <code>onclick</code> attribute to <code>Material.openMenu({button: 'more-button', menu: 'more-menu', width: 100, height: 200, duration:0.18})</code>. The exact usage for <code>Material.menu.open(config)</code> is defined in the docs. Breaking down this example though, you'll see that we send an object to the function. The first key in the object defines the id of the button element, the next key defines the id of the menu we're trying to access. The last three keys define the dimensions of the menu should be, and how fast it should open.</p>
+        <div class="code-example">
+            <div class="code">
+                &lt;html>
+                <br>
+                <tab></tab>&lt;head>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;link href="Material.css" rel="stylesheet" type="text/css">
+                <tab></tab>
+                <tab></tab>&lt;script src="Material.js">&lt;/script>
+                <br>
+                <tab></tab>&lt;/head>
+                <br>
+                <tab></tab>&lt;body onload="Material.init({backgroundColor: '#F5F5F5', accentColor: '#00E676'})">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-button-image" id="more-button" onclick="Material.menu.open({button: 'more-button', position: 'relative', menu: 'more-menu', width: 100, height: 200, duration:0.25})" title="More">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;img src="img/more-24.png">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div id="more-menu" class="material-menu">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-menu-wrapper">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-menu-item">Item 1&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-menu-item">Item 2&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-menu-item-disabled">Item 3&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-menu-item">Item 4&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-menu-item">Item 5&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <tab></tab>&lt;/body>
+                <br>&lt;/html>
+            </div>
+            <div class="demo">
+                <div class="material-button-image" id="more-button" onclick="Material.menu.open({button: 'more-button', position: 'relative', menu: 'more-menu', width: 100, height: 200, duration:0.25})" title="More">
+                    <img src="img/more-24.png">
+                </div>
+                <div id="more-menu" class="material-menu">
+                    <div class="material-menu-wrapper">
+                        <div class="material-menu-item">Item 1</div>
+                        <div class="material-menu-item">Item 2</div>
+                        <div class="material-menu-item-disabled">Item 3</div>
+                        <div class="material-menu-item">Item 4</div>
+                        <div class="material-menu-item">Item 5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>An alternative to using inline HTML events, you can use JavaScript. The case with using JavaScript is that it's much easier to edit and pass an object to the <code>.menu.open(config)</code> method. But, you can't <em>technically</em> pass the object using the <code>.setAttribute(stringAttr, stringValue)</code> method. Therefore, it's important to remember that <code>JSON.stringify(Object)</code> should be used when passing the passing the object. The demo below is the same as the one above, only it uses JavaScript to set the <code>onclick</code> attribute.</p>
+        <div class="code-example">
+            <div class="code">
+                window.onload = function () {
+                <br>
+                <tab></tab>var menuConfig = {
+                <br>
+                <tab></tab>
+                <tab></tab>button: 'more-button',
+                <br>
+                <tab></tab>
+                <tab></tab>position: 'relative',
+                <br>
+                <tab></tab>
+                <tab></tab>menu: 'more-menu',
+                <br>
+                <tab></tab>
+                <tab></tab>width: 100,
+                <br>
+                <tab></tab>
+                <tab></tab>height: 200,
+                <br>
+                <tab></tab>
+                <tab></tab>duration: 0.25
+                <br>
+                <tab></tab>};
+                <br>
+                <br>
+                <tab></tab>document.getElementById(obj.button).setAttribute('onclick', 'Material.menu.open(' + JSON.stringify(obj) + ')');
+                <br>};
+            </div>
+            <div class="demo">
+                <div class="material-button-image" id="more-button-JS" title="More">
+                    <img src="img/more-24.png">
+                </div>
+                <div class="material-menu" id="more-menu-JS">
+                    <div class="material-menu-wrapper">
+                        <div class="material-menu-item">Item 1</div>
+                        <div class="material-menu-item">Item 2</div>
+                        <div class="material-menu-item-disabled">Item 3</div>
+                        <div class="material-menu-item">Item 4</div>
+                        <div class="material-menu-item">Item 5</div>
+                    </div>
+                </div>
+                <script>
+                    (function () {
+                        var menuConfig = {
+                            button: 'more-button-JS',
+                            position: 'relative',
+                            menu: 'more-menu-JS',
+                            width: 100,
+                            height: 200,
+                            duration: 0.25
+                        };
+
+                        document.getElementById(menuConfig.button).setAttribute('onclick', 'Material.menu.open(' + JSON.stringify(menuConfig) + ')');
+                    })();
+                </script>
+            </div>
+        </div>
+        <div class="heading">Creating a Card
+            <a href="#cards" class="doc-link">
+                <img src="img/link-24.png">
+            </a>
+        </div>
+        <p>Near the top of the list with a button, cards are one of the easier compontents to create with Web.Material. It's as simple as giving a <code>div</code> the class <code>material-card</code>.The Card component has sub classes that are defined in the docs.</p>
+        <div class="code-example">
+            <div class="code">
+                <br>&lt;html>
+                <br>
+                <tab></tab>&lt;head>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;link href="Material.css" rel="stylesheet" type="text/css">
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;script src="Material.js">&lt;/script>
+                <br>
+                <tab></tab>&lt;/head>
+                <br>
+                <tab></tab>&lt;body onload="Material.init({backgroundColor: '#F5F5F5', accentColor: '#00E676'})">
+                <br>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-card" title="Card">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                &lt;div class="material-card-heading">Hello World!&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-card-content">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;p>This is a demo of Web.Material's Card component&lt;/p>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-card">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-card-heading">Hello Web!&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;div class="material-card-content">
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;p>This is a demo of a Card component.&lt;/p>
+                <br>
+                <tab></tab>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <tab></tab>
+                <tab></tab>&lt;/div>
+                <br>
+                <br>
+                <tab></tab>&lt;/body>
+                <br>&lt;/html>
+            </div>
+            <div class="demo">
+                <div class="material-card" title="Card">
+                    <div class="material-card-heading">Hello World!</div>
+                    <div class="material-card-content">
+                        <p>This is a demo of a Card component.</p>
+                    </div>
+                </div>
+                <div class="material-card" title="Hello Web!">
+                    <div class="material-card-heading">Hello Web!</div>
+                    <div class="material-card-content">
+                        <p>This is a demo of a Card component.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>If cards need to be generated dynamically, this come be done with <code>Material.card.create(config)</code>. The <code>parent</code> key is the id of the element the cards are to be put into.</p>
+        <div class="code-example">
+            <div class="code">
+                <br>var cardConfig = {
+                <br>
+                <tab></tab>parent: 'cards-wrapper',
+                <br>
+                <tab></tab>indent: true,
+                <br>
+                <tab></tab>title: true
+                <br>};
+                <br>
+                <br>for (var i = 1; i &lt; 13; i++) {
+                <br>
+                <tab></tab>cardConfig.heading = 'Card ' + i;
+                <br>
+                <tab></tab>cardConfig.content = 'This card\'s uid is &lt;em>' + i + '&lt;/em>.';
+                <br>
+                <tab></tab>Material.card.create(cardConfig);
+                <br>};
+            </div>
+            <div class="demo">
+                <div id="cards-wrapper"></div>
+                <script>
+                    var cardConfig = {
+                        parent: 'cards-wrapper',
+                        indent: true,
+                        title: true
+                    };
+                    for (var i = 1; i < 13; i++) {
+                        cardConfig.heading = 'Card ' + i;
+                        cardConfig.content = 'This card\'s uid is <em>' + i + '</em>.';
+                        Material.card.create(cardConfig);
+                    }
+                </script>
+            </div>
+        </div>
+        <br>
+        <div style="font-size: 30px; font-weigth: 300;" id="docs">Docs</div>
+        <br>
+        <div class="heading">Overview</div>
+        <p>The folllowing information is the documentation. It overlooks and explains the available methods and classes that come with Web.Material. Remember that all properties and methods can be overwritten, as long as they comply with standard HTML Presidence Rules. Web.Material is still under development, so please be aware that some functions or classes may not work as expected or planned. If you noticed a reoccurring bug please, please, PLEASE report it <a href="mailto:steelesam72@gmail.com?Subject=Web%20Material%20Bug">here</a>. The colors in these demos are relative to this site's theme.</p>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="init">Initiation</div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    Material.init({
+                    <br>
+                    <tab></tab>backgroundColor: '#F5F5F5',
+                    <br>
+                    <tab></tab>accentColor: '#00E676'
+                    <br>});
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.init(config) -- Initiates Compentents.</p>
+                <p>
+                    <tab></tab>config.backgroundColor -- String hex. Defines the background color of the page.</p>
+                <p>
+                    <tab></tab>config.accentColor -- String hex. Defines accent color of the page .It's used when coloring Sliders and form like Item.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>None.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>When the webpage is loaded the <code>Material.init(config)</code> method must be invoked. This function loads the fonts and sets up some global variables, in particular, the <code>color</code> key defines the accent color for your website. This accent color is used when coloring switches and sliders, they are not coded into the library.</p>
+                <p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="buttons">Buttons</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;">Button</div>
+                <div class="material-button-raised material-button-disabled" style="background-color: #00E676; display: inline-block;">Disabled</div>
+                <div class="material-button-flat" style=" display: inline-block; color: #00E676;">Button</div>
+                <div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Disabled</div>
+                <div class="material-button-floating" style="background-color: #00E676; display: inline-block;">
+                    <img src="img/plus-24.png">
+                </div>
+                <div class="material-button-floating material-button-disabled" style="background-color: #00E676; display: inline-block;">
+                    <img src="img/plus-24.png">
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;!-- Raised Buttons ->
+                    <br>&lt;div class="material-button-raised" style="background-color: #00E676; display: inline-block;">Button&lt;/div>
+                    <br>&lt;div class="material-button-raised material-button-disabled" style="background-color: #00E676; display: inline-block;">Disabled&lt;/div>
+                    <br>
+                    <br>&lt;!-- Flat Buttons -->
+                    <br>&lt;div class="material-button-flat" style=" display: inline-block; color: #00E676;">Button&lt;/div>
+                    <br>&lt;div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Disabled&lt;/div>
+                    <br>
+                    <br>&lt;!-- Floating Buttons -->
+                    <br>&lt;div class="material-button-floating" style="background-color: #00E676; display: inline-block;">
+                    <br>
+                    <tab></tab>&lt;img src="img/plus-24.png">
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-button-floating material-button-disabled" style="background-color: #00E676; display: inline-block;">
+                    <br>
+                    <tab></tab>&lt;img src="img/plus-24.png">
+                    <br>&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>None.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-button-* -- Default button class, should be followed by button type (flat, raised, floating).</p>
+                <p>Material-button-raised -- Raised button.</p>
+                <p>Material-button-flat -- Flat button.</p>
+                <p>Material-button-floating -- Floating button.</p>
+                <p>Material-button-image -- Image based button.</p>
+                <p>material-button-disabled -- Disables any type of button.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>To style the colors for buttons, inline styling or custom CSS will work. For example, in buttons in the example are a mint color due to the color definition with the inline styling of the div.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="cards">Cards</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div class="material-card" title="Hello World" style="margin: 10px; width: 600px;">
+                    <div class="material-card-heading">Hello World!</div>
+                    <div class="material-card-content">
+                        <p>This is an example of a Card component.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div id="cards-wrapper">
+                    <br>
+                    <tab></tab>&lt;div class="material-card" title="Hello World" style="margin: 10px; width: 600px;">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-card-heading">Hello World!&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-card-content">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;p>This is an example of a Card component.&lt;/p>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>
+                    <br>&lt;!-- OR -->
+                    <br>
+                    <br>&lt;script>
+                    <br>
+                    <tab></tab>var config = {
+                    <br>
+                    <tab></tab>
+                    <tab></tab>parent: 'cards-wrapper',
+                    <br>
+                    <tab></tab>
+                    <tab></tab>indent: true,
+                    <br>
+                    <tab></tab>
+                    <tab></tab>title: true.
+                    <br>
+                    <tab></tab>
+                    <tab></tab>heading: 'Hello World!,
+                    <br>
+                    <tab></tab>
+                    <tab></tab>content: '&lt;p>This is an example of a Card component.&lt;/p>'
+                    <br>
+                    <tab></tab>};
+                    <br>
+                    <br>
+                    <tab></tab>Material.card.create(config);
+                    <br>&lt;/script>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.card -- Parent class.</p>
+                <p>Material.card.create(config) -- Creates a new card.</p>
+                <p>
+                    <p>
+                        <tab></tab>config.parent -- String id. The element that cards should be appended to.</p>
+                    <p>
+                        <tab></tab>config.heading -- String. The heading text of the card.</p>
+                    <p>
+                        <tab></tab>config.content -- String. Content of the card.</p>
+                    <p>
+                        <tab></tab>config.title -- Boolean. If true the Title Attribute will be the same as config.heading</p>
+                    <p>
+                        <tab></tab>config.indent -- Boolean. If true, the content of the card will be indented.</p>
+                </p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-card -- Parent class for a card. Sub-classes should be inside this element.</p>
+                <p>material-card-heading -- Styles the heading of the card.</p>
+                <p>material-card-content -- Styles the content of the card.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>The width of the card should be styled with inline or custom CSS.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="chips">Chips</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div class="material-chip-closed" style="width: 164px;">
+                    <img class="material-chip-closed-portrait" src="img/sam.png">
+                    <div class="material-chip-closed-contact">Samuel Steele</div>
+                </div>
+                <div class="material-chip-closed" style="width: 156px;">
+                    <img class="material-chip-closed-portrait" src="img/devin.png">
+                    <div class="material-chip-closed-contact">Devin Fowler</div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-chip-closed" style="width: 164px;">
+                    <br>
+                    <tab></tab>&lt;img class="material-chip-closed-portrait" src="img/sam.png">
+                    <br>
+                    <tab></tab>&lt;div class="material-chip-closed-contact">Samuel Steele&lt;/div>
+                    <br>&lt;/div>
+                    <br>
+                    <br>&lt;div class="material-chip-closed" style="width: 156px;">
+                    <br>
+                    <tab></tab>&lt;img class="material-chip-closed-portrait" src="img/devin.png">
+                    <br>
+                    <tab></tab>&lt;div class="material-chip-closed-contact">Devin Fowler&lt;/div>
+                    <br>&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>None.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-chip-closed -- Parent class for a closed chip. Sub-classes should be inside this element.</p>
+                <p>material-chip-closed-portrait -- Class for the contact's image. Should be attached to an img tag</p>
+                <p>material-chip-closed-contact -- Class for the contacts name.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>None.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="dialogs">Dialogs</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.dialog.open('test-dialog')">Dialog</div>
+                <div class="material-dialog-overlay">
+                    <div class="material-dialog" id="test-dialog">
+                        <div class="material-dialog-heading">Test Dialog</div>
+                        <div class="material-dialog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget accumsan nibh, quis consectetur sapien. Curabitur felis lacus, imperdiet vitae libero vitae, porttitor varius sem. Integer pulvinar lacus erat, elementum rhoncus ex sagittis eu. Cras accumsan neque sem, id commodo diam lobortis rutrum. Ut aliquet leo ac libero sodales lobortis. Nunc bibendum rutrum tortor, et consequat urna tristique mattis. In cursus, lorem sit amet finibus consectetur, ante eros efficitur eros, sed bibendum nunc est molestie ipsum. Nulla efficitur bibendum augue, sed laoreet sapien tristique id. Aliquam rutrum, eros sed feugiat tempus, turpis ante laoreet dui, sit amet accumsan tellus ipsum vel dolor. Duis sit amet ipsum tristique, iaculis ipsum at, lobortis nisl.</div>
+                        <div class="material-dialog-buttons">
+                            <div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Submit</div>
+                            <div class="material-button-flat" style="display: inline-block; color: #00E676;" onclick="Material.dialog.close(this)">Close</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.dialog.open('test-dialog')">Dialog&lt;/div>
+                    <br>
+                    <br>&lt;div class="material-dialog-overlay">
+                    <br>
+                    <tab></tab>&lt;div class="material-dialog" id="test-dialog">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-dialog-heading">Test Dialog&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    &lt;div class="material-dialog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget accumsan nibh, quis consectetur sapien. Curabitur felis lacus, imperdiet vitae libero vitae, porttitor varius sem. Integer pulvinar lacus erat, elementum rhoncus ex sagittis eu. Cras accumsan neque sem, id commodo diam lobortis rutrum. Ut aliquet leo ac libero sodales lobortis. Nunc bibendum rutrum tortor, et consequat urna tristique mattis. In cursus, lorem sit amet finibus consectetur, ante eros efficitur eros, sed bibendum nunc est molestie ipsum. Nulla efficitur bibendum augue, sed laoreet sapien tristique id. Aliquam rutrum, eros sed feugiat tempus, turpis ante laoreet dui, sit amet accumsan tellus ipsum vel dolor. Duis sit amet ipsum tristique, iaculis ipsum at, lobortis nisl.&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-dialog-buttons">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Submit&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-button-flat" style="display: inline-block; color: #00E676;" onclick="Material.dialog.close(this)">Close&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.dialog -- Parent class.</p>
+                <p>Material.dialog.open(id) -- Shows a specified dialog.</p>
+                <p>
+                    <tab></tab>id -- String id. Id of the dialog to show.</p>
+                <p>Material.dialog.close(this) -- Closes a dialog. Should always pass <em>this</em> to this method.</p>
+                <p>
+                    <tab></tab>this -- The <em>this</em> keyword should always be passed to this function.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-dialog-overlay -- Gray/Black background when dialogs are shown. All sub-classes should be in classes element.</p>
+                <p>material-dialog -- Parent class of a dialog.</p>
+                <p>material-dialog-heading -- Dialogs heading.</p>
+                <p>material-dialog-content -- Content of the dialog / The dialog text.</p>
+                <p>material-dialog-buttons -- Container for the dialog buttons.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>All the dialogs should be placed inside a div with the <code>material-dialog-overlay</code> class. The overlay element can be placed anywhere on the page. To complying to Material Design Guidelines, the <code>material-dialog-buttons</code> should contain flat buttons.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="dividers">Dividers</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <br>
+                <hr>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-divider">
+                    <br>
+                    <br>&lt;!-- OR -- >
+                    <br>
+                    <br>&lt;hr>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>None.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-divider -- Divider class.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>A divider will span 100% of its parent element's width.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="lists">Lists</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <br>
+                <div class="material-list" style="width: 380px;" id="list-demo">
+                    <div class="material-list-item" name="Samuel Steele">
+                        <img class="material-list-avatar" src="img/sam.png">
+                        <div class="material-list-content">
+                            <div class="material-list-heading">Samuel Steele</div>
+                            <div class="material-list-secondary">steelesam72@gmail.com</div>
+                        </div>
+                        <img class="material-list-icon" src="img/new_message-24.png" onclick="Material.goto('mailto:steelesam72@gmail.com', '_blank')">
+                    </div>
+                    <hr>
+                    <div class="material-list-item" name="Devin Fowler">
+                        <img class="material-list-avatar" src="img/devin.png">
+                        <div class="material-list-content">
+                            <div class="material-list-heading">Devin Fowler</div>
+                            <div class="material-list-secondary">devin@email.com</div>
+                        </div>
+                        <img class="material-list-icon" src="img/new_message-24.png">
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-list" style="width: 500px;" id="list-demo">
+                    <br>
+                    <tab></tab>&lt;div class="material-list-item" name="Samuel Steele">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;img class="material-list-avatar" src="img/sam.png">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-list-content">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-list-heading">Samuel Steele&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-list-secondary">steelesam72@gmail.com&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;img class="material-list-icon" src="img/new_message-24.png" onclick="Material.goto('mailto:steelesam72@gmail.com', '_blank')">
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>
+                    <tab></tab>&lt;hr>
+                    <br>
+                    <tab></tab>&lt;div class="material-list-item" name="Devin Fowler">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;img class="material-list-avatar" src="img/devin.png">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-list-content">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-list-heading">Devin Fowler&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-list-secondary">devin@email.com&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;img class="material-list-icon" src="img/new_message-24.png">
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>
+                    <br>...
+                    <br>
+                    <br>&lt;script>
+                    <br>
+                    <tab></tab>Material.list.sort({
+                    <br>
+                    <tab></tab>
+                    <tab></tab>id: 'list-demo'
+                    <br>
+                    <tab></tab>});
+                    <br>&lt;/script>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.list -- Parent class.</p>
+                <p>Material.list.sort(config) -- Method to sort a list. Accepts an object.</p>
+                <p>
+                    <tab></tab>config.id -- String id. Id of the material-list element.</p>
+                <p>
+                    <tab></tab>config.descending -- Boolean. False by default (meaning ascending is true by default), if true list items will be sorted in descending order.</p>
+                <p>
+                    <tab></tab>config.dividers -- Boolen. True by default. If false, dividers will not by added between items when sorted.</p>
+                <p>Material.list.create(config) -- Method to create a list.</p>
+                <p>
+                    <tab></tab>config.id -- String id. Id of the material-list element.</p>
+                <p>
+                    <tab></tab>config.heading -- String. Heading of the list item being created.</p>
+                <p>
+                    <tab></tab>config.secondary -- String. Secondary text string.</p>
+                <p>
+                    <tab></tab>config.dividers -- Boolen. False by default, if true, dividers will be placed in between list items.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-list -- Parent class to lists. Acts as a container for lists.</p>
+                <p>material-list-item -- An item in a list.</p>
+                <p>material-list-avatar -- If it is a list of people or items that may be easily identified by images, this is the image that appears to the left of the list's text.</p>
+                <p>material-list-content -- Parent class to a list's text (heading, and secondary text).</p>
+                <p>material-list-heading -- Heading for the list item.</p>
+                <p>material-list-secondary -- Secondary text of a list item.</p>
+                <p>material-list-icon -- An action icon within a list. Icons appear on the right of a list item.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>Like many other components, lists have a heirarchy structure that defines how items should appear to the user. The <code>Material.list.sort(config)</code> should be called on page load. List items are sorted by the value of the <code>material-list-item</code>'s <code>name</code> attribute. If the <code>name</code> atrribute contains a String, the list items will be sorted alphabetically. The sort method supports numbers.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="grids">Grids</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div class="material-grid" id="grid-demo" style="width: 400px; background-color:#E0E0E0;" columns="4" cell-height="100px">
+                    <div class="material-grid-wrapper">
+                        <div class="material-grid-cell" name="0">0</div>
+                        <div class="material-grid-cell" name="3">3</div>
+                        <div class="material-grid-cell" name="4">4</div>
+                        <div class="material-grid-cell" name="1">1</div>
+                        <div class="material-grid-cell" name="5">5</div>
+                        <div class="material-grid-cell" name="2">2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-grid" id="grid-demo" style="width: 400px; background-color:#E0E0E0;" columns="4" cell-height="100px">
+                    <br>
+                    <tab></tab>&lt;div class="material-grid-wrapper">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-grid-cell" name="0">0&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-grid-cell" name="3">3&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-grid-cell" name="4">4&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-grid-cell" name="1">1&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-grid-cell" name="5">5&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-grid-cell" name="2">2&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>
+                    <br>...
+                    <br>
+                    <br>&lt;script>
+                    <br>
+                    <tab></tab>Material.grid.sort({
+                    <br>
+                    <tab></tab>
+                    <tab></tab>id: 'grid-demo'
+                    <br>
+                    <tab></tab>});
+                    <br>&lt;/script>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.grid -- Parent class.</p>
+                <p>Material.grid.sort(config) -- Method to sort a list. Accepts an object.</p>
+                <p>
+                    <tab></tab>config.id -- String id. Id of the material-list element.</p>
+                <p>
+                    <tab></tab>config.descending -- Boolean. False by default (meaning ascending is true by default), if true list items will be sorted in descending order.</p>
+                <p>Material.grid.create(config) -- Creates a grid.</p>
+                <p>
+                    <tab></tab>config.id -- String id. Id of the material-grid element that contains an empty material-grid-wrapper.</p>
+                <p>
+                    <tab></tab>config.content -- String. innerHTML of the cell.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-grid -- Parent class for a grid.</p>
+                <p>material-grid-wrapper -- This element centers cells if they don't evenly form the specified number of columns. The cells are inside this element.</p>
+                <p>material-grid-cell -- A cell in the grid.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>The number of columns and the height of cells are determined by two inline attributes, <code>columns</code> and <code>cell-height</code>. They should be in the <code>material-grid</code> element.
+                </p>
+                <p>The <code>Material.grid.sort(config)</code> should be called on page load. Simularly to the list sorting, grid items are sorted by the value of the <code>material-grid-cell</code>'s <code>name</code> attribute. If the <code>name</code> atrribute contains a String, the list items will be sorted alphabetically. The sort method supports numbers.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="menus">Menus</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div style="padding: 15px; width: 300px; height: 300px; overflow: hidden;">
+                    <div class="material-button-image" id="menu-button" onclick="Material.menu.open({button: 'menu-button', position: 'relative', menu: 'menu-menu', width: 100, height: 200, duration:0.25})" title="More">
+                        <img src="img/more-24.png">
+                    </div>
+                    <div id="menu-menu" class="material-menu">
+                        <div class="material-menu-wrapper">
+                            <div class="material-menu-item">Item 1</div>
+                            <div class="material-menu-item">Item 2</div>
+                            <div class="material-menu-item-disabled">Item 3</div>
+                            <div class="material-menu-item">Item 4</div>
+                            <div class="material-menu-item">Item 5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-button-image" id="menu-button" onclick="Material.menu.open({button: 'menu-button', position: 'relative', menu: 'menu-menu', width: 100, height: 200, duration:0.25})" title="More">
+                    <br>
+                    <tab></tab>&lt;img src="img/more-24.png">
+                    <br>&lt;/div>
+                    <br>&lt;div id="menu-menu" class="material-menu">
+                    <br>
+                    <tab></tab>&lt;div class="material-menu-wrapper">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-menu-item">Item 1&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-menu-item">Item 2&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-menu-item-disabled">Item 3&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-menu-item">Item 4&lt;/div>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-menu-item">Item 5&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>
+                    <br>&lt;!-- OR -- >
+                    <br>
+                    <br>&lt;script>
+                    <br>
+                    <tab></tab>(function () {
+                    <br>
+                    <tab></tab>
+                    <tab></tab>var menuConfig = {
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>button: 'more-button-JS',
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>position: 'relative',
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>menu: 'more-menu-JS',
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>width: 100,
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>height: 200,
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <tab></tab>duration: 0.25
+                    <br>
+                    <tab></tab>
+                    <tab></tab>};
+                    <br>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>document.getElementById(menuConfig.button).setAttribute('onclick', 'Material.menu.open(' + JSON.stringify(menuConfig) + ')');
+                    <br>
+                    <tab></tab>})();
+                    <br>&lt;/script>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.menu -- Parent class.</p>
+                <p>Material.menu.open(config) -- Opens a dialog. Accepts Object <em>config</em>.
+                </p>
+                <p>
+                    <tab></tab>config.button -- String id. Id of the button.</p>
+                <p>
+                    <tab></tab>config.menu -- String id. Id of the menu to open.</p>
+                <p>
+                    <tab></tab>config.position -- String. CSS position of the button.</p>
+                <p>
+                    <tab></tab>config.width -- Int. Width of the menu.</p>
+                <p>
+                    <tab></tab>config.height -- Int. Height of the menu.</p>
+                <p>
+                    <tab></tab>config.duration -- Int. Duration of the menu animation.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-menu -- Parent class that defines a menu.</p>
+                <p>material-menu-wrapper -- Class that holds the menu items.</p>
+                <p>material-menu-item -- An item in a menu</p>
+                <p>material-menu-item-disabled -- An item in a menu that is disabled</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>When using Javascript to define <code>Material.menu.open(config)</code>, <code>JSON.stringify(<em>Object</em>)</code> should be used to convert the object being passed to a string.
+                </p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="pickers">Pickers</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <em>@todo</em>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc"><em>@todo</em>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p><em>@todo</em>
+                </p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p><em>@todo</em>
+                </p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p><em>@todo</em>
+                </p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="progress">Progress &amp; Activity</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <progress class="material-progress-linear" value="0" max="100" style="width: 300px;" id="demo-progress-linear"></progress>
+            </div>
+            <script>
+                var progress = document.getElementById('demo-progress-linear');
+                window.setInterval(function () {
+                    if (progress.value >= 100) {
+                        progress.value = 0;
+                    } else {
+                        progress.value += 1;
+                    }
+                }, 50);
+            </script>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;progress class="material-progress-linear" value="0" max="100" style="width: 300px;" id="demo-progress-linear">&lt;/progress>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>None.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-progress-linear -- Styles a linear progress bar.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>None.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="sliders">Sliders</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <p>Defaut: &nbsp;
+                    <input class="material-slider" id="slider0" type="range" min="0" max="100" value="50" oninput="Material.slider.update(this)" title="Slider">
+                </p>
+                <p>Disabled: &nbsp;
+                    <input disabled class="material-slider" type="range" min="0" max="100" value="50" oninput="Material.slider.update(this)" title="Slider">
+                </p>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;input class="material-slider" id="slider0" type="range" min="0" max="100" value="50" oninput="Material.slider.update(this)" title="Slider">
+                    <br>
+                    <br>&lt;input disabled class="material-slider" type="range" min="0" max="100" value="50" oninput="Material.slider.update(this)" title="Slider">
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.slider -- Parent class.</p>
+                <p>Material.slider.update(this) -- Updates the sliders colors. Should always pass <em>this</em> to this method.</p>
+                <p>
+                    <tab></tab>this -- The <em>this</em> keyword should always be passed to this function.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-slider -- Default class for a slider</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>Sliders are used with the input tag with the <code>type</code> range. To disable a slider, include the <code>disabled</code> attribute in the input tag. The <code>oninput</code> attribute should be used to call the <code>Material.slider.update()</code> method.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="toasts">Snapbacks &amp; Toasts</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <br>
+                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.snapback.show('snapback-demo')">Snapback</div>
+                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.toast.show('toast-demo')">Toast</div>
+                </p>
+                <div class="material-snapback" id="snapback-demo" style="width:300px;">Destructive Action Preformed.<span class="material-snapback-button" style="color: #00E676;">UNDO</span>
+                </div>
+                <div class="material-toast" id="toast-demo" style="width:200px;">Toast Message.</div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.snapback.show('snapback-demo')">Snapback&lt;/div>
+                    <br>&lt;div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.toast.show('toast-demo')">Toast&lt;/div>
+                    <br>
+                    <br>&lt;div class="material-snapback" id="snapback-demo" style="width:300px;">Destructive Action Preformed. &lt;span class="material-snapback-button" style="color: #00E676;">UNDO&lt;/span> &lt;/div>
+                    <br>&lt;div class="material-toast" id="toast-demo" style="width:200px;">Toast Message.&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.snapback -- Parent class.</p>
+                <p>Material.snapback.show(id) -- Method to display the specified snapback.</p>
+                <p>
+                    <tab></tab>id -- String id. Id of the snapback kto be displayed.</p>
+                <p>Material.toast -- Parent class.</p>
+                <p>Material.toast.show(id) -- Method to display the specified toast.</p>
+                <p>
+                    <tab></tab>id -- String id. Id of the toast to be displayed.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-snapback -- Default class for a snapback.</p>
+                <p>material-snapback-button -- Class for the button within a snapback.</p>
+                <p>material-toast -- Default class for a toast.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>Sanpbacks and toasts can be defined anywhere in a document. Although, it's recommended to keep them near dialogs, but NOT inside the <code>material-dialog-overlay</code> element.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="switches">Switches</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <br>
+                <div class="material-switch" value="true" id="switch-demo-0">
+                    <div class="material-switch-body">
+                        <div class="material-switch-radial" onclick="Material.switch.update('switch-demo-0')"></div>
+                    </div>
+                </div>
+                <div class="material-switch" value="false" id="switch-demo-1">
+                    <div class="material-switch-body">
+                        <div class="material-switch-radial" onclick="Material.switch.update('switch-demo-1')"></div>
+                    </div>
+                </div>
+                <div class="material-switch-disabled" value="true" id="switch-demo-2">
+                    <div class="material-switch-body">
+                        <div class="material-switch-radial" onclick="Material.switch.update('switch-demo-2')"></div>
+                    </div>
+                </div>
+                <div class="material-switch-disabled" value="false" id="switch-demo-3">
+                    <div class="material-switch-body">
+                        <div class="material-switch-radial" onclick="Material.switch.update('switch-demo-3')"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-switch" value="true" id="switch-demo-0">
+                    <br>
+                    <tab></tab>&lt;div class="material-switch-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-switch-radial" onclick="Material.switch.update('switch-demo-0')">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-switch" value="false" id="switch-demo-1">
+                    <br>
+                    <tab></tab>&lt;div class="material-switch-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-switch-radial" onclick="Material.switch.update('switch-demo-1')">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-switch-disabled" value="true" id="switch-demo-2">
+                    <br>
+                    <tab></tab>&lt;div class="material-switch-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-switch-radial" onclick="Material.switch.update('switch-demo-2')">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-switch-disabled" value="false" id="switch-demo-3">
+                    <br>
+                    <tab></tab>&lt;div class="material-switch-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-switch-radial" onclick="Material.switch.update('switch-demo-3')">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.switch -- Parent class.</p>
+                <p>Material.switch.update(id) -- Updates a switch's value.</p>
+                <p>
+                    <tab></tab>id -- String id. Id of the switch to update.</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-switch -- Parent class for a switch.</p>
+                <p>material-switch-body -- The body of the switch, it contains the actual switch button.</p>
+                <p>material-switch-radial -- The actual button of the switch.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>Notice in the example that the structure of a switch is like a heirarchy. This switch button (radial) is inside the switch body, which is inside the switch parent class. The <code>value</code> attribute is used to hold the value of the switch. When the switch is the on position the value is <code>true</code>, when in the off position the value is <code>false</code>.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="checkboxes">Checkboxes</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <br>
+                <div>Checkboxes:</div>
+                <div class="material-checkbox">
+                    <div class="material-checkbox-body" value="true" onclick="Material.checkbox.update(this)">
+                        <div class="material-checkbox-checkmark"></div>
+                    </div>
+                </div>
+                <div class="material-checkbox">
+                    <div class="material-checkbox-body" value="false" onclick="Material.checkbox.update(this)">
+                        <div class="material-checkbox-checkmark"></div>
+                    </div>
+                </div>
+                <div class="material-checkbox">
+                    <div disabled class="material-checkbox-body" value="true">
+                        <div class="material-checkbox-checkmark"></div>
+                    </div>
+                </div>
+                <div class="material-checkbox">
+                    <div disabled class="material-checkbox-body" value="false">
+                        <div class="material-checkbox-checkmark"></div>
+                    </div>
+                </div>
+                <br>
+                <div>Radios:</div>
+                <div class="material-checkbox-radio">
+                    <div class="material-checkbox-radio-body">
+                        <div class="material-checkbox-radio-button" value="true" onclick="Material.radio.update(this)"></div>
+                    </div>
+                </div>
+                <div class="material-checkbox-radio">
+                    <div class="material-checkbox-radio-body">
+                        <div class="material-checkbox-radio-button" value="false" onclick="Material.radio.update(this)"></div>
+                    </div>
+                </div>
+                <div class="material-checkbox-radio" disabled>
+                    <div class="material-checkbox-radio-body">
+                        <div class="material-checkbox-radio-button" value="true"></div>
+                    </div>
+                </div>
+                <div class="material-checkbox-radio" disabled>
+                    <div class="material-checkbox-radio-body">
+                        <div class="material-checkbox-radio-button" value="false"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-checkbox">
+                    <br>
+                    <tab></tab>&lt;div class="material-checkbox-body" value="true" onclick="Material.checkbox.update(this)">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-checkmark">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-checkbox">
+                    <br>
+                    <tab></tab>&lt;div class="material-checkbox-body" value="false" onclick="Material.checkbox.update(this)">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-checkmark">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-checkbox">
+                    <br>
+                    <tab></tab>&lt;div disabled class="material-checkbox-body" value="true">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-checkmark">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-checkbox">
+                    <br>
+                    <tab></tab>&lt;div disabled class="material-checkbox-body" value="false">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-checkmark">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>
+                    <br>&lt;div class="material-checkbox-radio">
+                    <br>
+                    <tab></tab>&lt;div class="material-checkbox-radio-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-radio-button" value="true" onclick="Material.radio.update(this)">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-checkbox-radio">
+                    <br>
+                    <tab></tab>&lt;div class="material-checkbox-radio-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-radio-button" value="false" onclick="Material.radio.update(this)">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-checkbox-radio" disabled>
+                    <br>
+                    <tab></tab>&lt;div class="material-checkbox-radio-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-radio-button" value="true">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-checkbox-radio" disabled>
+                    <br>
+                    <tab></tab>&lt;div class="material-checkbox-radio-body">
+                    <br>
+                    <tab></tab>
+                    <tab></tab>&lt;div class="material-checkbox-radio-button" value="false">&lt;/div>
+                    <br>
+                    <tab></tab>&lt;/div>
+                    <br>&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>Material.checkbox -- Parent class.</p>
+                <p>Material.checkbox.update(this) -- Updates the value of a Web.Material checkbox. Should always pass <em>this</em> to this method.</p>
+                <p>
+                    <tab></tab>this -- The <em>this</em> keyword should always be passed to this menthod.</p>
+                <p>Material.radio -- Parent class.</p>
+                <p>Material.radio.update(this) -- Updates the value of a Web.Material radio checkbox. Should always pass <em>this</em> to this method.</p>
+                <p>
+                    <tab></tab>this -- The <em>this</em> keyword should always be passed to this menthod.</p>
+
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-checkbox -- Parent class for a checkbox.</p>
+                <p>
+                    <tab></tab>material-checkbox-body -- Wrapper for the checkmark.</p>
+                <p>
+                    <tab></tab>material-checkbox-checkmark -- The checkmark.</p>
+                <p>material-checkbox-radio -- Parent class for a radio style checkbox.</p>
+                <p>
+                    <tab></tab>material-checkmark-radio-body -- Wrapper for the radio checkbox button.</p>
+                <p>
+                    <tab></tab>material-checkbox-radio-button -- Radio button class.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>For normal checkboxes, the <code>value</code> attribute and <code>onclick</code> attriute should be in the <code>material-checkbox-body</code> element. For radio based checkboxes, the <code>value</code> attribute and <code>onclick</code> attriute should be in the <code>material-checkbox-radio-button</code> element.</p>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="doc-item">
+            <div class="heading" id="textboxes">Text Boxes</div>
+            <div class="doc-example">
+                <div class="sub-heading">Example:</div>
+                <div class="material-textbox">
+                    <label class="material-textbox-label" for="text-demo">Text Box</label>
+                    <input class="material-textbox-input" type="text" name="text-demo" id="text-demo" placeholder="Hint Text">
+                </div>
+                <div class="material-textbox">
+                    <label class="material-textbox-label" for="text-demo">Disbaled Text Box</label>
+                    <input disabled class="material-textbox-input" type="text" name="text-demo" id="text-demo" placeholder="Hint Text">
+                </div>
+            </div>
+            <div class="doc-code">
+                <div class="sub-heading">Code:</div>
+                <div class="code-in-doc">
+                    &lt;div class="material-textbox">
+                    <br>
+                    <tab></tab>&lt;label class="material-textbox-label" for="text-demo">Text Box&lt;/label>
+                    <br>
+                    <tab></tab>&lt;input class="material-textbox-input" type="text" name="text-demo" id="text-demo" placeholder="Hint Text">
+                    <br>&lt;/div>
+                    <br>&lt;div class="material-textbox">
+                    <br>
+                    <tab></tab>&lt;label class="material-textbox-label" for="text-demo">Disbaled Text Box&lt;/label>
+                    <br>
+                    <tab></tab>&lt;input disabled class="material-textbox-input" type="text" name="text-demo" id="text-demo" placeholder="Hint Text">
+                    <br>&lt;/div>
+                </div>
+            </div>
+            <div class="methods">
+                <div class="sub-heading">Methods:</div>
+                <p>None</p>
+            </div>
+            <div class="styles">
+                <div class="sub-heading">Styling:</div>
+                <p>material-textbox -- Parent class. Acts as a wrapper/container for the label and the input feild.</p>
+                <p>material-textbox-label -- Styles a label to the input feild.</p>
+                <p>material-textbox-input -- Styles the input feild.</p>
+            </div>
+            <div class="notes">
+                <div class="sub-heading">Notes:</div>
+                <p>Though it is not a requirement, it's recommended to use the <code>material-textbox</code> parent class to contain the label and input feild of a textbox. Doing so could help avoid styling errors.</p>
+            </div>
+        </div>
+</body>
+
+<!--  General JavaScript for the page  -->
+<script>
+    function init() {
+        Material.init({
+            backgroundColor: '#F5F5F5',
+            accentColor: '#00E676'
+        });
+        Material.list.sort({
+            id: 'list-demo'
+        });
+        Material.grid.sort({
+            id: 'grid-demo'
+        })
+    };
+</script>
+
+</html>
