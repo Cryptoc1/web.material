@@ -21,9 +21,10 @@
         <div class="heading">Welcome</div>
         <p>Welcome to Web.Material. Here on this site you can find documentation and other content on Web.Material.</p>
         <div class="heading">What is Web.Material?</div>
-        <p>Web.Material is two files that attempt to make Material Design concepts easily implemented into websites. A CSS and a JS file hold functions and classes that make it easy to imlpement responsive features and fluid animations. For more imformation on Material Design, Google has created documentation <a href="http://google.com/design/spec">here</a>.</p>
+        <p>Web.Material is two files that attempt to make Material Design concepts easily implemented into websites. A CSS and a JS file hold functions and classes that make it easy to imlpement responsive features and fluid animations. For more imformation
+            on Material Design, Google has created documentation <a href="http://google.com/design/spec">here</a>.</p>
         <div class="heading">Who is Web.Material?</div>
-        <p>Web.Material was concieved of by <a href="http://cryptocosm.x10.bz" target="_blank">Cryptocosm Developers</a>. As of 2014 the main author has been Samuel Steele (cryptoc1). Although, Others can contribute to the project by forking it on GitHub, or submitting suggestions to <a href="mailto:steelesam72@gmail.com?Subject=Web%20Material%20Suggestion">Sam</a>
+        <p> Web.Material was made by Samuel Steele &lt;@cryptoc1>. Although, Others can contribute to the project by forking it on GitHub, or submitting suggestions to <a href="mailto:steelesam72@gmail.com?Subject=Web%20Material%20Suggestion">Sam</a>
         </p>
         <div class="heading">Where Can I get Web.Material?</div>
         <p>Web.Material is available for download through <a href="">GitHub</a>.</p>
@@ -31,7 +32,8 @@
         <div style="font-size: 30px; font-weigth: 300;">Tutorials &amp; Demos</div>
         <br>
         <div class="heading">Getting Started</div>
-        <p>To get started using Web.material load the CSS and JS files in your webpage. Whether done using JavaScript or the <code>onload</code> attribute, <code>Material.init(config)</code> should be called when the webpage loads. This accepts an obect that defines some global variables.</p>
+        <p>To get started using Web.material load the CSS and JS files in your webpage. Whether done using JavaScript or the <code>onload</code> attribute, <code>Material.init(config)</code> should be called when the webpage loads. This accepts an obect
+            that defines some global variables.</p>
         <div class="code-example" style="height: 180px;">
             <div class="code" style="height: 150px">
                 &lt;html>
@@ -55,7 +57,8 @@
                 <img src="img/link-24.png">
             </a>
         </div>
-        <p>One of the simpilest things that can be crated with Web.Material is a floating button. Doing so is as simple as creating a <code>div</code> and giving it a class <code>material-button-floating</code>. In this example an image was put inside the button. By default floating buttons are 50x50 pixels wide. Web.Material assumes that any image put inside the button will be 24x24 pixels. Although, all of these rules can be overidden by custom CSS.</p>
+        <p>One of the simpilest things that can be crated with Web.Material is a floating button. Doing so is as simple as creating a <code>div</code> and giving it a class <code>material-button-floating</code>. In this example an image was put inside the
+            button. By default floating buttons are 50x50 pixels wide. Web.Material assumes that any image put inside the button will be 24x24 pixels. Although, all of these rules can be overidden by custom CSS.</p>
         <div class="code-example">
             <div class="code">
                 &lt;html>
@@ -119,9 +122,9 @@
                 <br>&lt;/html>
             </div>
             <div class="demo" id="refresh-button-demo">
-                <div class="material-button-floating" id="add-button" title="Add">
+                <button class="material-button floating" id="add-button" title="Add" type="button">
                     <img src="img/plus-24.png">
-                </div>
+                </button>
             </div>
         </div>
         <div class="heading">Creating a button with pop-out menu
@@ -129,7 +132,9 @@
                 <img src="img/link-24.png">
             </a>
         </div>
-        <p>Begin by creating an element to be a button, in this tutorial it will be an image. Set that elements <code>onclick</code> attribute to <code>Material.openMenu({button: 'more-button', menu: 'more-menu', width: 100, height: 200, duration:0.18})</code>. The exact usage for <code>Material.menu.open(config)</code> is defined in the docs. Breaking down this example though, you'll see that we send an object to the function. The first key in the object defines the id of the button element, the next key defines the id of the menu we're trying to access. The last three keys define the dimensions of the menu should be, and how fast it should open.</p>
+        <p>Begin by creating an element to be a button, in this tutorial it will be an image. Set that elements <code>onclick</code> attribute to <code>Material.menu.toggle({button: 'more-button', menu: 'more-menu', width: 100, height: 200, duration:0.18})</code>.
+            The exact usage for <code>Material.menu.open(config)</code> is defined in the docs. Breaking down this example though, you'll see that we send an object to the function. The first key in the object defines the id of the button element, the
+            next key defines the id of the menu we're trying to access. The last three keys define the dimensions of the menu should be, and how fast it should open.</p>
         <div class="code-example">
             <div class="code">
                 &lt;html>
@@ -147,7 +152,7 @@
                 <br>
                 <tab></tab>
                 <tab></tab>
-                <tab></tab>&lt;div class="material-button-image" id="more-button" onclick="Material.menu.open({button: 'more-button', position: 'relative', menu: 'more-menu', width: 100, height: 200, duration:0.25})" title="More">
+                <tab></tab>&lt;div class="material-button-image" id="more-button" onclick="Material.menu.toggle({button: 'more-button', menu: 'more-menu', width: 100, height: 200, duration:0.25})" title="More">
                 <br>
                 <tab></tab>
                 <tab></tab>
@@ -209,7 +214,7 @@
                 <br>&lt;/html>
             </div>
             <div class="demo">
-                <div class="material-button-image" id="more-button" onclick="Material.menu.open({button: 'more-button', position: 'relative', menu: 'more-menu', width: 100, height: 200, duration:0.25})" title="More">
+                <div class="material-button image" id="more-button" onclick="Material.menu.toggle(event, {button: 'more-button', menu: 'more-menu', width: 100, height: 200, duration:0.25})" title="More">
                     <img src="img/more-24.png">
                 </div>
                 <div id="more-menu" class="material-menu">
@@ -223,7 +228,9 @@
                 </div>
             </div>
         </div>
-        <p>An alternative to using inline HTML events, you can use JavaScript. The case with using JavaScript is that it's much easier to edit and pass an object to the <code>.menu.open(config)</code> method. But, you can't <em>technically</em> pass the object using the <code>.setAttribute(stringAttr, stringValue)</code> method. Therefore, it's important to remember that <code>JSON.stringify(Object)</code> should be used when passing the passing the object. The demo below is the same as the one above, only it uses JavaScript to set the <code>onclick</code> attribute.</p>
+        <p>An alternative to using inline HTML events, you can use JavaScript. The case with using JavaScript is that it's much easier to edit and pass an object to the <code>.menu.open(config)</code> method. But, you can't <em>technically</em> pass the
+            object using the <code>.setAttribute(stringAttr, stringValue)</code> method. Therefore, it's important to remember that <code>JSON.stringify(Object)</code> should be used when passing the passing the object. The demo below is the same as the
+            one above, only it uses JavaScript to set the <code>onclick</code> attribute.</p>
         <div class="code-example">
             <div class="code">
                 window.onload = function () {
@@ -232,9 +239,6 @@
                 <br>
                 <tab></tab>
                 <tab></tab>button: 'more-button',
-                <br>
-                <tab></tab>
-                <tab></tab>position: 'relative',
                 <br>
                 <tab></tab>
                 <tab></tab>menu: 'more-menu',
@@ -251,11 +255,11 @@
                 <tab></tab>};
                 <br>
                 <br>
-                <tab></tab>document.getElementById(obj.button).setAttribute('onclick', 'Material.menu.open(' + JSON.stringify(obj) + ')');
+                <tab></tab>document.getElementById(obj.button).setAttribute('onclick', 'Material.menu.toggle(event, ' + JSON.stringify(obj) + ')');
                 <br>};
             </div>
             <div class="demo">
-                <div class="material-button-image" id="more-button-JS" title="More">
+                <div class="material-button image" id="more-button-JS" title="More">
                     <img src="img/more-24.png">
                 </div>
                 <div class="material-menu" id="more-menu-JS">
@@ -268,17 +272,16 @@
                     </div>
                 </div>
                 <script>
-                    (function () {
+                    (function() {
                         var menuConfig = {
                             button: 'more-button-JS',
-                            position: 'relative',
                             menu: 'more-menu-JS',
                             width: 100,
                             height: 200,
                             duration: 0.25
                         };
 
-                        document.getElementById(menuConfig.button).setAttribute('onclick', 'Material.menu.open(' + JSON.stringify(menuConfig) + ')');
+                        document.getElementById(menuConfig.button).setAttribute('onclick', 'Material.menu.toggle(event, ' + JSON.stringify(menuConfig) + ')');
                     })();
                 </script>
             </div>
@@ -288,7 +291,8 @@
                 <img src="img/link-24.png">
             </a>
         </div>
-        <p>Near the top of the list with a button, cards are one of the easier compontents to create with Web.Material. It's as simple as giving a <code>div</code> the class <code>material-card</code>.The Card component has sub classes that are defined in the docs.</p>
+        <p>Near the top of the list with a button, cards are one of the easier compontents to create with Web.Material. It's as simple as giving a <code>div</code> the class <code>material-card</code>.The Card component has sub classes that are defined in
+            the docs.</p>
         <div class="code-example">
             <div class="code">
                 <br>&lt;html>
@@ -414,7 +418,9 @@
         <div style="font-size: 30px; font-weigth: 300;" id="docs">Docs</div>
         <br>
         <div class="heading">Overview</div>
-        <p>The folllowing information is the documentation. It overlooks and explains the available methods and classes that come with Web.Material. Remember that all properties and methods can be overwritten, as long as they comply with standard HTML Presidence Rules. Web.Material is still under development, so please be aware that some functions or classes may not work as expected or planned. If you noticed a reoccurring bug please, please, PLEASE report it <a href="mailto:steelesam72@gmail.com?Subject=Web%20Material%20Bug">here</a>. The colors in these demos are relative to this site's theme.</p>
+        <p>The folllowing information is the documentation. It overlooks and explains the available methods and classes that come with Web.Material. Remember that all properties and methods can be overwritten, as long as they comply with standard HTML Presidence
+            Rules. Web.Material is still under development, so please be aware that some functions or classes may not work as expected or planned. If you noticed a reoccurring bug please, please, PLEASE report it <a href="mailto:steelesam72@gmail.com?Subject=Web%20Material%20Bug">here</a>.
+            The colors in these demos are relative to this site's theme.</p>
         <br>
         <div class="doc-item">
             <div class="heading" id="init">Initiation</div>
@@ -443,7 +449,8 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>When the webpage is loaded the <code>Material.init(config)</code> method must be invoked. This function loads the fonts and sets up some global variables, in particular, the <code>color</code> key defines the accent color for your website. This accent color is used when coloring switches and sliders, they are not coded into the library.</p>
+                <p>When the webpage is loaded the <code>Material.init(config)</code> method must be invoked. This function loads the fonts and sets up some global variables, in particular, the <code>color</code> key defines the accent color for your website.
+                    This accent color is used when coloring switches and sliders, they are not coded into the library.</p>
                 <p>
             </div>
         </div>
@@ -454,37 +461,39 @@
             <div class="heading" id="buttons">Buttons</div>
             <div class="doc-example">
                 <div class="sub-heading">Example:</div>
-                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;">Button</div>
-                <div class="material-button-raised material-button-disabled" style="background-color: #00E676; display: inline-block;">Disabled</div>
-                <div class="material-button-flat" style=" display: inline-block; color: #00E676;">Button</div>
-                <div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Disabled</div>
-                <div class="material-button-floating" style="background-color: #00E676; display: inline-block;">
+                <button class="material-button raised" type="button">Button</button>
+                <button class="material-button raised" type="button" disabled>Disabled</button>
+
+                <button class="material-button flat" type="button">Button</button>
+                <button class="material-button flat" type="button" disabled>Disabled</button>
+
+                <button class="material-button floating" type="button">
                     <img src="img/plus-24.png">
-                </div>
-                <div class="material-button-floating material-button-disabled" style="background-color: #00E676; display: inline-block;">
+                </button>
+                <button class="material-button floating" type="button" disabled>
                     <img src="img/plus-24.png">
-                </div>
+                </button>
             </div>
             <div class="doc-code">
                 <div class="sub-heading">Code:</div>
                 <div class="code-in-doc">
                     &lt;!-- Raised Buttons ->
-                    <br>&lt;div class="material-button-raised" style="background-color: #00E676; display: inline-block;">Button&lt;/div>
-                    <br>&lt;div class="material-button-raised material-button-disabled" style="background-color: #00E676; display: inline-block;">Disabled&lt;/div>
+                    <br>&lt;button class="material-button raised" style="background-color: #00E676; display: inline-block;" type="button">Button&lt;/button>
+                    <br>&lt;button class="material-button raised" style="background-color: #00E676; display: inline-block;" type="button" disabled>Disabled&lt;/button>
                     <br>
                     <br>&lt;!-- Flat Buttons -->
-                    <br>&lt;div class="material-button-flat" style=" display: inline-block; color: #00E676;">Button&lt;/div>
-                    <br>&lt;div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Disabled&lt;/div>
+                    <br>&lt;button class="material-button flat" style=" display: inline-block; color: #00E676;" type="button">Button&lt;/button>
+                    <br>&lt;button class="material-button flat" style=" display: inline-block; color: #00E676;">Disabled&lt;/button>
                     <br>
                     <br>&lt;!-- Floating Buttons -->
-                    <br>&lt;div class="material-button-floating" style="background-color: #00E676; display: inline-block;">
+                    <br>&lt;button class="material-button floating" style="background-color: #00E676; display: inline-block;" type="button">
+                    <br>
+                    <tab></tab>&lt;img src="img/plus-24.png" type="button">
+                    <br>&lt;/button>
+                    <br>&lt;button class="material-button floating" style="background-color: #00E676; display: inline-block;" disabled>
                     <br>
                     <tab></tab>&lt;img src="img/plus-24.png">
-                    <br>&lt;/div>
-                    <br>&lt;div class="material-button-floating material-button-disabled" style="background-color: #00E676; display: inline-block;">
-                    <br>
-                    <tab></tab>&lt;img src="img/plus-24.png">
-                    <br>&lt;/div>
+                    <br>&lt;/button>
                 </div>
             </div>
             <div class="methods">
@@ -494,11 +503,10 @@
             <div class="styles">
                 <div class="sub-heading">Styling:</div>
                 <p>material-button-* -- Default button class, should be followed by button type (flat, raised, floating).</p>
-                <p>Material-button-raised -- Raised button.</p>
-                <p>Material-button-flat -- Flat button.</p>
-                <p>Material-button-floating -- Floating button.</p>
-                <p>Material-button-image -- Image based button.</p>
-                <p>material-button-disabled -- Disables any type of button.</p>
+                <p>Material-button raised -- Raised button.</p>
+                <p>Material-button flat -- Flat button.</p>
+                <p>Material-button floating -- Floating button.</p>
+                <p>Material-button image -- Image based button.</p>
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
@@ -654,14 +662,17 @@
             <div class="heading" id="dialogs">Dialogs</div>
             <div class="doc-example">
                 <div class="sub-heading">Example:</div>
-                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.dialog.open('test-dialog')">Dialog</div>
+                <button class="material-button raised" onclick="Material.dialog.open('test-dialog')" type="button">Dialog</button>
                 <div class="material-dialog-overlay">
                     <div class="material-dialog" id="test-dialog">
                         <div class="material-dialog-heading">Test Dialog</div>
-                        <div class="material-dialog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget accumsan nibh, quis consectetur sapien. Curabitur felis lacus, imperdiet vitae libero vitae, porttitor varius sem. Integer pulvinar lacus erat, elementum rhoncus ex sagittis eu. Cras accumsan neque sem, id commodo diam lobortis rutrum. Ut aliquet leo ac libero sodales lobortis. Nunc bibendum rutrum tortor, et consequat urna tristique mattis. In cursus, lorem sit amet finibus consectetur, ante eros efficitur eros, sed bibendum nunc est molestie ipsum. Nulla efficitur bibendum augue, sed laoreet sapien tristique id. Aliquam rutrum, eros sed feugiat tempus, turpis ante laoreet dui, sit amet accumsan tellus ipsum vel dolor. Duis sit amet ipsum tristique, iaculis ipsum at, lobortis nisl.</div>
+                        <div class="material-dialog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget accumsan nibh, quis consectetur sapien. Curabitur felis lacus, imperdiet vitae libero vitae, porttitor varius sem. Integer pulvinar lacus erat, elementum
+                            rhoncus ex sagittis eu. Cras accumsan neque sem, id commodo diam lobortis rutrum. Ut aliquet leo ac libero sodales lobortis. Nunc bibendum rutrum tortor, et consequat urna tristique mattis. In cursus, lorem sit amet finibus
+                            consectetur, ante eros efficitur eros, sed bibendum nunc est molestie ipsum. Nulla efficitur bibendum augue, sed laoreet sapien tristique id. Aliquam rutrum, eros sed feugiat tempus, turpis ante laoreet dui, sit amet accumsan
+                            tellus ipsum vel dolor. Duis sit amet ipsum tristique, iaculis ipsum at, lobortis nisl.</div>
                         <div class="material-dialog-buttons">
-                            <div class="material-button-flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;">Submit</div>
-                            <div class="material-button-flat" style="display: inline-block; color: #00E676;" onclick="Material.dialog.close(this)">Close</div>
+                            <button class="material-button flat" style="display: inline-block; color: #00E676;" onclick="Material.dialog.close(this)" type="button">Close</button>
+                            <button class="material-button flat material-button-flat-disabled" style=" display: inline-block; color: #00E676;" type="button">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -680,7 +691,10 @@
                     <br>
                     <tab></tab>
                     <tab></tab>
-                    &lt;div class="material-dialog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget accumsan nibh, quis consectetur sapien. Curabitur felis lacus, imperdiet vitae libero vitae, porttitor varius sem. Integer pulvinar lacus erat, elementum rhoncus ex sagittis eu. Cras accumsan neque sem, id commodo diam lobortis rutrum. Ut aliquet leo ac libero sodales lobortis. Nunc bibendum rutrum tortor, et consequat urna tristique mattis. In cursus, lorem sit amet finibus consectetur, ante eros efficitur eros, sed bibendum nunc est molestie ipsum. Nulla efficitur bibendum augue, sed laoreet sapien tristique id. Aliquam rutrum, eros sed feugiat tempus, turpis ante laoreet dui, sit amet accumsan tellus ipsum vel dolor. Duis sit amet ipsum tristique, iaculis ipsum at, lobortis nisl.&lt;/div>
+                    &lt;div class="material-dialog-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget accumsan nibh, quis consectetur sapien. Curabitur felis lacus, imperdiet vitae libero vitae, porttitor varius sem. Integer pulvinar lacus
+                    erat, elementum rhoncus ex sagittis eu. Cras accumsan neque sem, id commodo diam lobortis rutrum. Ut aliquet leo ac libero sodales lobortis. Nunc bibendum rutrum tortor, et consequat urna tristique mattis. In cursus, lorem sit amet
+                    finibus consectetur, ante eros efficitur eros, sed bibendum nunc est molestie ipsum. Nulla efficitur bibendum augue, sed laoreet sapien tristique id. Aliquam rutrum, eros sed feugiat tempus, turpis ante laoreet dui, sit amet accumsan
+                    tellus ipsum vel dolor. Duis sit amet ipsum tristique, iaculis ipsum at, lobortis nisl.&lt;/div>
                     <br>
                     <tab></tab>
                     <tab></tab>&lt;div class="material-dialog-buttons">
@@ -720,7 +734,7 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>All the dialogs should be placed inside a div with the <code>material-dialog-overlay</code> class. The overlay element can be placed anywhere on the page. To complying to Material Design Guidelines, the <code>material-dialog-buttons</code> should contain flat buttons.</p>
+                <p>All the dialogs should be placed inside a div with the <code>material-dialog-overlay</code> class. The overlay element can be placed anywhere on the page. To complying to Material Design Guidelines, the <code>material-dialog-buttons</code>                    should contain flat buttons.</p>
             </div>
         </div>
         <br>
@@ -885,7 +899,8 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>Like many other components, lists have a heirarchy structure that defines how items should appear to the user. The <code>Material.list.sort(config)</code> should be called on page load. List items are sorted by the value of the <code>material-list-item</code>'s <code>name</code> attribute. If the <code>name</code> atrribute contains a String, the list items will be sorted alphabetically. The sort method supports numbers.</p>
+                <p>Like many other components, lists have a heirarchy structure that defines how items should appear to the user. The <code>Material.list.sort(config)</code> should be called on page load. List items are sorted by the value of the <code>material-list-item</code>'s
+                    <code>name</code> attribute. If the <code>name</code> atrribute contains a String, the list items will be sorted alphabetically. The sort method supports numbers.</p>
             </div>
         </div>
         <br>
@@ -971,7 +986,7 @@
                 <div class="sub-heading">Notes:</div>
                 <p>The number of columns and the height of cells are determined by two inline attributes, <code>columns</code> and <code>cell-height</code>. They should be in the <code>material-grid</code> element.
                 </p>
-                <p>The <code>Material.grid.sort(config)</code> should be called on page load. Simularly to the list sorting, grid items are sorted by the value of the <code>material-grid-cell</code>'s <code>name</code> attribute. If the <code>name</code> atrribute contains a String, the list items will be sorted alphabetically. The sort method supports numbers.</p>
+                <p>The <code>Material.grid.sort(config)</code> should be called on page load. Simularly to the list sorting, grid items are sorted by the value of the <code>material-grid-cell</code>'s <code>name</code> attribute. If the <code>name</code>                    atrribute contains a String, the list items will be sorted alphabetically. The sort method supports numbers.</p>
             </div>
         </div>
         <br>
@@ -982,7 +997,7 @@
             <div class="doc-example">
                 <div class="sub-heading">Example:</div>
                 <div style="padding: 15px; width: 300px; height: 300px; overflow: hidden;">
-                    <div class="material-button-image" id="menu-button" onclick="Material.menu.open({button: 'menu-button', position: 'relative', menu: 'menu-menu', width: 100, height: 200, duration:0.25})" title="More">
+                    <div class="material-button image" id="menu-button" onclick="Material.menu.toggle(event, {button: 'menu-button', direction: 'left', menu: 'menu-menu', width: 100, height: 200, duration:0.25})" title="More">
                         <img src="img/more-24.png">
                     </div>
                     <div id="menu-menu" class="material-menu">
@@ -999,7 +1014,7 @@
             <div class="doc-code">
                 <div class="sub-heading">Code:</div>
                 <div class="code-in-doc">
-                    &lt;div class="material-button-image" id="menu-button" onclick="Material.menu.open({button: 'menu-button', position: 'relative', menu: 'menu-menu', width: 100, height: 200, duration:0.25})" title="More">
+                    &lt;div class="material-button-image" id="menu-button" onclick="Material.menu.toggle(event, {button: 'menu-button', menu: 'menu-menu', width: 100, height: 200, duration:0.25})" title="More">
                     <br>
                     <tab></tab>&lt;img src="img/more-24.png">
                     <br>&lt;/div>
@@ -1040,10 +1055,6 @@
                     <br>
                     <tab></tab>
                     <tab></tab>
-                    <tab></tab>position: 'relative',
-                    <br>
-                    <tab></tab>
-                    <tab></tab>
                     <tab></tab>menu: 'more-menu-JS',
                     <br>
                     <tab></tab>
@@ -1063,7 +1074,7 @@
                     <br>
                     <br>
                     <tab></tab>
-                    <tab></tab>document.getElementById(menuConfig.button).setAttribute('onclick', 'Material.menu.open(' + JSON.stringify(menuConfig) + ')');
+                    <tab></tab>document.getElementById(menuConfig.button).setAttribute('onclick', 'Material.menu.toggle(event, ' + JSON.stringify(menuConfig) + ')');
                     <br>
                     <tab></tab>})();
                     <br>&lt;/script>
@@ -1072,14 +1083,14 @@
             <div class="methods">
                 <div class="sub-heading">Methods:</div>
                 <p>Material.menu -- Parent class.</p>
-                <p>Material.menu.open(config) -- Opens a dialog. Accepts Object <em>config</em>.
+                <p>Material.menu.toggle(event, config) -- Opens/closes a menu. Accepts Object <em>config</em>.
                 </p>
+                <p>
+                    <tab></tab>event -- MouseEvent passed by the window. Must be explicitly stated in the `onclick` declaration.</p>
                 <p>
                     <tab></tab>config.button -- String id. Id of the button.</p>
                 <p>
                     <tab></tab>config.menu -- String id. Id of the menu to open.</p>
-                <p>
-                    <tab></tab>config.position -- String. CSS position of the button.</p>
                 <p>
                     <tab></tab>config.width -- Int. Width of the menu.</p>
                 <p>
@@ -1096,7 +1107,7 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>When using Javascript to define <code>Material.menu.open(config)</code>, <code>JSON.stringify(<em>Object</em>)</code> should be used to convert the object being passed to a string.
+                <p>When using Javascript to define <code>Material.menu.toggle(config)</code>, <code>JSON.stringify(<em>Object</em>)</code> should be used to convert the object being passed to a string.
                 </p>
             </div>
         </div>
@@ -1141,7 +1152,7 @@
             </div>
             <script>
                 var progress = document.getElementById('demo-progress-linear');
-                window.setInterval(function () {
+                window.setInterval(function() {
                     if (progress.value >= 100) {
                         progress.value = 0;
                     } else {
@@ -1203,7 +1214,7 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>Sliders are used with the input tag with the <code>type</code> range. To disable a slider, include the <code>disabled</code> attribute in the input tag. The <code>oninput</code> attribute should be used to call the <code>Material.slider.update()</code> method.</p>
+                <p>Sliders are used with the input tag with the <code>type</code> range. To disable a slider, include the <code>disabled</code> attribute in the input tag. The <code>oninput</code> attribute should be used to call the <code>Material.slider.update()</code>                    method.</p>
             </div>
         </div>
         <br>
@@ -1214,10 +1225,10 @@
             <div class="doc-example">
                 <div class="sub-heading">Example:</div>
                 <br>
-                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.snapback.show('snapback-demo')">Snapback</div>
-                <div class="material-button-raised" style="background-color: #00E676; display: inline-block;" onclick="Material.toast.show('toast-demo')">Toast</div>
+                <button class="material-button raised" onclick="Material.snapback.show('snapback-demo')" type="button">Snapback</button>
+                <button class="material-button raised" onclick="Material.toast.show('toast-demo')" type="button">Toast</button>
                 </p>
-                <div class="material-snapback" id="snapback-demo" style="width:300px;">Destructive Action Preformed.<span class="material-snapback-button" style="color: #00E676;">UNDO</span>
+                <div class="material-snapback" id="snapback-demo" style="width:300px;">Destructive Action Preformed.<span class="material-snapback-button">UNDO</span>
                 </div>
                 <div class="material-toast" id="toast-demo" style="width:200px;">Toast Message.</div>
             </div>
@@ -1338,7 +1349,8 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>Notice in the example that the structure of a switch is like a heirarchy. This switch button (radial) is inside the switch body, which is inside the switch parent class. The <code>value</code> attribute is used to hold the value of the switch. When the switch is the on position the value is <code>true</code>, when in the off position the value is <code>false</code>.</p>
+                <p>Notice in the example that the structure of a switch is like a heirarchy. This switch button (radial) is inside the switch body, which is inside the switch parent class. The <code>value</code> attribute is used to hold the value of the
+                    switch. When the switch is the on position the value is <code>true</code>, when in the off position the value is <code>false</code>.</p>
             </div>
         </div>
         <br>
@@ -1501,7 +1513,7 @@
             </div>
             <div class="notes">
                 <div class="sub-heading">Notes:</div>
-                <p>For normal checkboxes, the <code>value</code> attribute and <code>onclick</code> attriute should be in the <code>material-checkbox-body</code> element. For radio based checkboxes, the <code>value</code> attribute and <code>onclick</code> attriute should be in the <code>material-checkbox-radio-button</code> element.</p>
+                <p>For normal checkboxes, the <code>value</code> attribute and <code>onclick</code> attriute should be in the <code>material-checkbox-body</code> element. For radio based checkboxes, the <code>value</code> attribute and <code>onclick</code>                    attriute should be in the <code>material-checkbox-radio-button</code> element.</p>
             </div>
         </div>
         <br>
@@ -1559,11 +1571,11 @@
     function init() {
         Material.init({
             backgroundColor: '#F5F5F5',
-            accentColor: '#00E676'
-        });
+            accentColor: '#F44336'
+        })
         Material.list.sort({
             id: 'list-demo'
-        });
+        })
         Material.grid.sort({
             id: 'grid-demo'
         })

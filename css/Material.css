@@ -6,122 +6,93 @@
 
 html {
     background-color: #F5F5F5;
+    font-size: 1em;
 }
 body {
     font-family: Roboto, sans-serif;
     font-weight: 300;
-    font-size: 17px;
+    font-size: 13pt;
     color: #363636;
     background-color: #F5F5F5;
 }
 p {
     text-indent: 20px;
 }
+
 /*  [url]/index.html#buttons  */
 
-.material-button-floating {
-    cursor: pointer;
-    width: 56px;
-    height: 56px;
-    border-radius: 28px;
-    transition: all 0.25s;
-    transform: scale(1);
-    box-shadow: 0px 3px 10px #BDBDBD;
-    margin: 10px;
+.material-button.floating {
+    width: 42pt;
+    height: 42pt;
+    border-radius: 50%;
 }
-.material-button-floating:hover {
-    cursor: pointer;
-    width: 56px;
-    height: 56px;
-    border-radius: 28px;
-    transition: all 0.25s;
-    transform: scale(1.025);
-    box-shadow: 0px 4px 10px #9E9E9E;
-}
-.material-button-floating img {
-    position: relative;
-    top: 16;
-    left: 16;
+.material-button.floating img {
     opacity: 0.65;
 }
-.material-button-raised {
-    cursor: pointer;
+.material-button.raised {
     min-width: 88px;
     width: auto;
-    max-width: 120px;
-    height: 30px;
-    max-height: 40px;
-    border-radius: 5px;
-    text-align: center;
-    padding: 5px;
-    font-size: 20px;
-    font-weight: 400;
-    transition: all 0.25s;
-    transform: scale(1);
-    box-shadow: 0px 2px 6px #BDBDBD;
-    margin: 10px;
 }
-.material-button-raised:hover {
-    cursor: pointer;
-    transition: all 0.25s;
-    transform: scale(1.0085);
-    box-shadow: 0px 3px 7px #9E9E9E;
-}
-.material-button-flat {
-    cursor: pointer;
+.material-button.flat {
     min-width: 88px;
     width: auto;
-    max-width: 120px;
-    height: 30px;
-    max-height: 30px;
-    border-radius: 5px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px;
-    font-size: 20px;
-    font-weight: 400;
-    transition: all 0.25s;
-    transform: scale(1);
-    margin: 10px;
+    box-shadow: none;
+    background: none;
 }
-.material-button-flat:active {
+.material-button.flat:hover {
+    box-shadow: none;
+}
+.material-button.flat:active {
     transition: all 0.25s;
     background-color: #E0E0E0;
 }
-.material-button-image {
+.material-button.image, .material-button.image:hover {
     width: 50px;
     height: 50px;
+    padding: 0;
+    margin: 0;
     cursor: pointer;
+    box-shadow: none;
+    background: none;
 }
-.material-button-image img {
+.material-button.image img {
     position: relative;
     top: 13;
     left: 13;
     opacity: 0.65;
 }
-.material-button-flat-disabled {
-    opacity: 0.5;
-    transform: scale(1);
-    cursor: default;
+.material-button.flat:disabled, .material-button.flat:disabled:hover {
+    box-shadow: none;
 }
-.material-button-flat-disabled:active {
-    opacity: 0.5;
-    transform: scale(1);
-    cursor: default;
-    background-color: transparent;
+.material-button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 4px;
+    text-align: center;
+    padding: 8pt;
+    margin: 8pt;
+    font-size: 14pt;
+    font-weight: 400;
+    transition: all 0.25s;
+    box-shadow: 0px 2px 6px #BDBDBD;
 }
-.material-button-disabled {
+.material-button:hover {
+    /*    transform: scale(1.025);*/
+    box-shadow: 0px 2px 7px #9E9E9E;
+}
+.material-button:disabled {
     cursor: default;
     opacity: 0.65;
     transform: scale(1);
     box-shadow: 0px 2px 8px #BDBDBD;
 }
-.material-button-disabled:hover {
-    opacity: 0.65;
+.material-button:disabled:hover {
     transform: scale(1);
-    cursor: default;
     box-shadow: 0px 2px 8px #BDBDBD;
 }
+
 /*  [url]/index.html#cards  */
 
 .material-card {
@@ -145,6 +116,7 @@ p {
 .material-card-content {
     font-size: 20px;
 }
+
 /*  [url]/index.html#chips  */
 
 .material-chip-closed {
@@ -180,6 +152,7 @@ p {
     color: #484848;
     display: inline-block;
 }
+
 /*  [url]/index.html#dialogs  */
 
 .material-dialog-overlay {
@@ -231,6 +204,7 @@ p {
 .material-dialog-buttons .material-button-flat {
     transition: none;
 }
+
 /*  [url]/index.html#dividers  */
 
 .material-divider {
@@ -247,6 +221,7 @@ hr {
     color: #9E9E9E;
     opacity: 0.65;
 }
+
 /*  [url]/index.html#lists  */
 
 .material-list {
@@ -290,6 +265,7 @@ hr {
     margin-top: 20px;
     margin-right: 10px;
 }
+
 /*  [url]/index.html#grids  */
 
 .material-grid {
@@ -305,6 +281,7 @@ hr {
     display: inline-block;
     background-color: #FFFFFF;
 }
+
 /*  [url]/index.html#menus  */
 
 .material-menu {
@@ -315,7 +292,7 @@ hr {
     box-shadow: 0px 1px 8px #BDBDBD;
     visibility: hidden;
     z-index: 8;
-    position: fixed;
+    position: absolute;
     overflow-x: hidden;
     overflow-y: scroll;
     max-height: 180;
@@ -341,6 +318,7 @@ hr {
     z-index: 8;
     opacity: 0.65;
 }
+
 /*  [url]/index.html#pickers  */
 
 .material-picker-date {
@@ -354,6 +332,14 @@ hr {
     visibility: visible;
     transition: all 0.125s;
     z-index: 98;
+}
+.material-picker-date-date {
+    width: 202px;
+    height: 202px;
+    margin: 0px;
+    float: left;
+    text-align: center;
+    color: #ECECEC;
 }
 .material-picker-date-date-day {
     margin-top: 8px;
@@ -417,10 +403,10 @@ hr {
     margin-right: -35px;
     float: right;
 }
-.material-picker-date-buttons .material-button-flat,
-.material-picker-date-buttons .material-button-flat-disabled {
+.material-picker-date-buttons .material-button-flat, .material-picker-date-buttons .material-button-flat-disabled {
     transition: none;
 }
+
 /*  [url]/index.html#progress  */
 
 .material-progress-linear {
@@ -438,11 +424,14 @@ hr {
 }
 .material-progress-linear::-webkit-progress-value {
     border: none;
+    /* @TODO: Add this to the javascript */
     background-color: #00E676;
     border-radius: 1px;
     transition: all 0.25s;
 }
+
 /*  [url]/index.html#sliders  */
+
 
 /*  Most of the styling for sliders is generated by JavaScript  */
 
@@ -456,7 +445,37 @@ hr {
 }
 .material-slider::-webkit-slider-thumb {
     border: none;
+    border-radius: 15px;
+    height: 12px;
+    width: 12px;
+    -webkit-appearance: none;
+    transition: all 0.125s;
+    cursor: pointer;
 }
+.material-slider::-webkit-slider-thumb:focus, .material-slider::-webkit-slider-thumb:hover {
+    border-radius: 15px;
+    height: 13px;
+    width: 13px;
+    -webkit-appearance: none;
+}
+.material-slider::-webkit-slider-thumb:active {
+    border-radius: 16px;
+    height: 32px;
+    width: 32px;
+    -webkit-appearance: none;
+}
+.material-slider::-webkit-slider-thumb:disabled {
+    border-radius: 15px height: 12px width: 12px -webkit-appearance: none transition: none cursor: default
+}
+.material-slider:disabled::-webkit-slider-thumb:hover {
+    border-radius: 15px;
+    height: 12px;
+    width: 12px;
+    -webkit-appearance: none;
+    transition: none;
+    cursor: default;
+}
+
 /*  [url]/index.html#toasts  */
 
 .material-snapback {
@@ -522,6 +541,7 @@ hr {
     transition: all 0.25s;
     z-index: 25;
 }
+
 /*  [url[/index.html#switches  */
 
 .material-switch {
@@ -530,8 +550,7 @@ hr {
     display: inline-block;
     margin: 6px;
 }
-.material-switch::selection,
-.material-switch::-moz-selection {
+.material-switch::selection, .material-switch::-moz-selection {
     background-color: Transparent;
     color: #000;
 }
@@ -560,14 +579,14 @@ hr {
     cursor: default;
     margin: 5px;
 }
-.material-switch-disabled::selection,
-.material-switch-disabled::-moz-selection {
+.material-switch-disabled::selection, .material-switch-disabled::-moz-selection {
     background-color: Transparent;
     color: #000;
 }
 .material-switch-disabled .material-switch-radial {
     cursor: default;
 }
+
 /*  [url]/index.html#checkboxes  */
 
 .material-checkbox {
@@ -578,8 +597,11 @@ hr {
     height: 40px;
     border-radius: 15px;
 }
-.material-checkbox::selection,
-.material-checkbox::-moz-selection {
+material-checkbox:active {
+    transition: all 0.2s;
+    border-radius: 25px;
+}
+.material-checkbox::selection, .material-checkbox::-moz-selection {
     background-color: Transparent;
     color: #000;
 }
@@ -612,9 +634,12 @@ hr {
     display: inline-block;
     border-radius: 15px;
 }
-.material-checkbox-radio::selection,
-.material-checkbox-radio::-moz-selection {
-    background-color: Transparent;
+.material-checkbox-radio:active {
+    transition: all 0.2s;
+    border-radius: 25px;
+}
+.material-checkbox-radio::selection, .material-checkbox-radio::-moz-selection {
+    background-color: transparent;
     color: #000;
 }
 .material-checkbox-radio-body {
@@ -642,6 +667,7 @@ hr {
     margin: 2px auto;
     opacity: 0;
 }
+
 /*  [url]/index.html#textboxes  */
 
 .material-textbox {
@@ -666,6 +692,11 @@ hr {
     border-bottom-width: thin;
     border-bottom-color: rgba(189, 189, 189, 0.65);
     transition: all 0.25s;
+}
+.material-textbox-input:focus, .material-textbox-input:active {
+    color: #424242;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
 }
 .material-textbox-input:disabled {
     opacity: 0.65;
