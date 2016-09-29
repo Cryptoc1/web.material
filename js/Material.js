@@ -64,11 +64,13 @@ Material.card.create = function(config) {
 
 // [url]/index.html#dialogs
 Material.dialog = {}
+
+// @TODO: add position option
 Material.dialog.open = function(id) {
     var dialog = document.getElementById(id),
         overlay = document.body.getElementsByClassName('material-dialog-overlay')
-    dialog.style.top = (window.innerHeight / 2) - (248 / 2)
-    dialog.style.left = (window.innerWidth / 2) - (368 / 2)
+    dialog.style.top = (window.innerHeight / 2) - (dialog.offsetHeight / 2)
+    dialog.style.left = (window.innerWidth / 2) - (dialog.offsetWidth / 2)
     overlay[0].style.visibility = 'visible'
     dialog.style.visibility = 'visible'
 }
@@ -230,6 +232,28 @@ Material.menu.toggle = function(e, config) {
     if (offsetFromParent.left > (button.parentNode.offsetWidth / 2) && offsetFromParent.top > (button.parentNode.offsetHeight / 2)) {
         var quadrant = 4
     }
+
+    console.log(typeof config.direction)
+
+    if (typeof config.direction == 'string')
+        switch (config.direction.toLowerCase()) {
+            case 'top-right':
+                var quadrant = 3
+                break
+            case 'top-left':
+                var quadrant = 4
+                break
+            case 'bottom-left':
+                var quadrant = 1
+                break
+            case 'bottom-right':
+                var quadrant = 2
+                break
+            default:
+                var quadrant = 2
+        }
+
+    console.log(quadrant)
 
     if (menu.dataset.active == 'true') {
         menu.style.width = '0px'
@@ -511,119 +535,9 @@ Material.toast.hide = function(id) {
 }
 
 //  [url]/index.html#switches
-Material.switch = {}
-Material.switch.init = function() {
-    var switches = document.querySelectorAll('.material-switch')
-    for (var i = 0; i < switches.length; i++) {
-        if (switches[i].getAttribute('value') == 'true') {
-            switches[i].children[0].children[0].style.left = 20
-            switches[i].children[0].children[0].style.backgroundColor = Material.accentColor
-            switches[i].children[0].style.backgroundColor = 'rgba(' + Material.hex2RGB(Material.accentColor).r + ', ' + Material.hex2RGB(Material.accentColor).g + ', ' + Material.hex2RGB(Material.accentColor).b + ', 0.75)'
-        }
-        if (switches[i].getAttribute('value') == 'false') {
-            switches[i].children[0].children[0].style.left = 0
-            switches[i].children[0].children[0].style.backgroundColor = '#E0E0E0'
-            switches[i].children[0].style.backgroundColor = '#BDBDBD'
-        }
-    }
-    var disabledSwitches = document.querySelectorAll('.material-switch-disabled')
-    for (var i = 0; i < switches.length; i++) {
-        if (disabledSwitches[i].getAttribute('value') == 'true') {
-            disabledSwitches[i].children[0].children[0].style.left = 20
-            disabledSwitches[i].children[0].children[0].style.backgroundColor = Material.accentColor
-            disabledSwitches[i].children[0].style.backgroundColor = 'rgba(' + Material.hex2RGB(Material.accentColor).r + ', ' + Material.hex2RGB(Material.accentColor).g + ', ' + Material.hex2RGB(Material.accentColor).b + ', 0.75)'
-        }
-        if (disabledSwitches[i].getAttribute('value') == 'false') {
-            disabledSwitches[i].children[0].children[0].style.left = 0
-            disabledSwitches[i].children[0].children[0].style.backgroundColor = '#E0E0E0'
-            disabledSwitches[i].children[0].style.backgroundColor = '#BDBDBD'
-        }
-    }
-}
-Material.switch.update = function(id) {
-    var Switch = document.getElementById(id)
-    var val = Switch.getAttribute('value')
-    if (Switch.className !== 'material-switch-disabled') {
-        if (val == 'true') {
-            Switch.children[0].children[0].style.left = 0
-            Switch.children[0].children[0].style.backgroundColor = '#E0E0E0'
-            Switch.children[0].style.backgroundColor = '#BDBDBD'
-            Switch.setAttribute('value', false)
-        }
-        if (val == 'false') {
-            Switch.children[0].children[0].style.left = 20
-            Switch.children[0].children[0].style.backgroundColor = Material.accentColor
-            Switch.children[0].style.backgroundColor = 'rgba(' + Material.hex2RGB(Material.accentColor).r + ', ' + Material.hex2RGB(Material.accentColor).g + ', ' + Material.hex2RGB(Material.accentColor).b + ', 0.75)'
-            Switch.setAttribute('value', true)
-        }
-    }
-}
 
 //  [url]/index.html#checkboxes
-Material.checkbox = {}
-Material.checkbox.init = function() {
-    var checkboxes = document.querySelectorAll('.material-checkbox-body')
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i].hasAttribute('disabled')) {
-            checkboxes[i].style.opacity = 0.65
-            checkboxes[i].style.cursor = 'default'
-        }
-        if (checkboxes[i].getAttribute('value') == 'true') {
-            checkboxes[i].style.borderColor = Material.accentColor
-            checkboxes[i].style.backgroundColor = Material.accentColor
-        }
-        if (checkboxes[i].getAttribute('value') == 'false') {
-            checkboxes[i].style.borderColor = '#BDBDBD'
-            checkboxes[i].style.backgroundColor = Material.backgroundColor
-        }
-        checkboxes[i].children[0].style.backgroundColor = Material.backgroundColor
-    }
-    var radios = document.querySelectorAll('.material-checkbox-radio')
-    for (var i = 0; i < radios.length; i++) {
-        if (radios[i].hasAttribute('disabled')) {
-            radios[i].style.opacity = 0.65
-            radios[i].style.cursor = 'default'
-        }
-    }
-    var radioButtons = document.querySelectorAll('.material-checkbox-radio-button')
-    for (var i = 0; i < radioButtons.length; i++) {
-        radioButtons[i].style.backgroundColor = Material.accentColor
-        if (radioButtons[i].getAttribute('value') == 'true') {
-            radioButtons[i].style.opacity = 1
-            radioButtons[i].parentElement.style.borderColor = Material.accentColor
-        }
-        if (radioButtons[i].getAttribute('value') == 'false') {
-            radioButtons[i].style.opacity = 0
-        }
-    }
-}
-Material.checkbox.update = function(id) {
-    var val = id.getAttribute('value')
-    if (val == 'false') {
-        id.setAttribute('value', 'true')
-        id.style.borderColor = Material.accentColor
-        id.style.backgroundColor = Material.accentColor
-    }
-    if (val == 'true') {
-        id.setAttribute('value', 'false')
-        id.style.borderColor = '#BDBDBD'
-        id.style.backgroundColor = Material.backgroundColor
-    }
-}
-Material.radio = {}
-Material.radio.update = function(id) {
-    var val = id.getAttribute('value')
-    if (val == 'false') {
-        id.style.opacity = '1'
-        id.setAttribute('value', 'true')
-        id.parentElement.style.borderColor = Material.accentColor
-    }
-    if (val == 'true') {
-        id.style.opacity = '0'
-        id.setAttribute('value', 'false')
-        id.parentElement.style.borderColor = '#BDBDBD'
-    }
-}
+
 
 //  [url]/index.html#boxes
 Material.textboxes = {}
@@ -653,6 +567,10 @@ Material.loadFonts = function() {
     f.rel = 'stylesheet'
     var l = document.getElementsByTagName('link')[0]
     l.parentNode.insertBefore(f, l)
+    var f1 = document.createElement('link')
+    f1.href = "https://fonts.googleapis.com/icon?family=Material+Icons"
+    f1.rel = 'stylesheet'
+    l.parentNode.insertBefore(f1, f)
 }
 
 // HexToRGB, used for some color effect
@@ -685,15 +603,18 @@ Material.init = function(config) {
         var comment = " /*  Material.js generated content  */"
         style.innerHTML = comment +
             ".material-button {background-color: " + _aColorHex + ";}\n" +
-            ".material-snapback-button {color: " + _aColorHex + ";}\n" +
+            ".material-button.flat[type=\"submit\"] { color: " + _aColorHex + ";}\n" +
             ".material-progress-linear::-webkit-progress-value {background-color:" + _aColorHex + ";}\n" +
-            ".material-checkbox:active {background-color: rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", 0.5);}\n" +
-            ".material-checkbox-radio:active {background-color: rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", 0.5);}\n" +
             ".material-slider::-webkit-slider-thumb { background-color: " + _aColorHex + ";}\n " +
             ".material-slider::-webkit-slider-thumb:focus, .material-slider::-webkit-slider-thumb:hover { background-color: " + _aColorHex + ";}\n " +
             ".material-slider::-webkit-slider-thumb:active { background: radial-gradient(circle, " + _aColorHex + ", " + _aColorHex + " 30%, rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", 0.36) 1%, rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", 0.01));}\n " +
             ".material-slider::-webkit-slider-thumb:disabled {background-color: " + _aColorHex + ";}\n " +
             ".material-slider:disabled::-webkit-slider-thumb:hover { background-color: " + _aColorHex + ";}\n " +
+            ".material-snapback-button {color: " + _aColorHex + ";}\n" +
+            ".material-switch input:checked+.radial {background-color: rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", .85);}\n" +
+            ".material-switch input:checked+.radial:before {background-color: " + _aColorHex + ";}\n" +
+            ".material-checkbox input:checked+i::before {color: " + _aColorHex + ";}" +
+            ".material-checkbox:active {background-color: rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", .65);}\n" +
             ".material-textbox-input:focus, .material-textbox-input:active {border-bottom-color: rgba(" + _aColorRGBA.r + ", " + _aColorRGBA.g + ", " + _aColorRGBA.b + ", 0.65);}\n " +
             ".material-picker-date-date { background-color:" + _aColorHex + ";}"
 
@@ -705,8 +626,7 @@ Material.init = function(config) {
         // Material.picker.init()
 
         Material.slider.init()
-        Material.switch.init()
-        Material.checkbox.init()
+            // Material.checkbox.init()
         Material.textboxes.init()
 
         console.log('Material.js:', Material.version)
